@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 
-namespace MystiLink.Ziwei
+namespace Mystilink.Ziwei
 {
     /// <summary>
     /// Thin CLI wrapper. Requires mystilink-ziwei on PATH or MYSTILINK_ZIWEI_CLI.

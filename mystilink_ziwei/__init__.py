@@ -1,4 +1,4 @@
-"""MystiLink Zi Wei Dou Shu chart calculator."""
+"""Mystilink Zi Wei Dou Shu chart calculator."""
 
 from .chart import ChartInput, compute_chart, parse_local_datetime, print_chart
 

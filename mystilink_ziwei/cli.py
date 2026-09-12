@@ -1,4 +1,4 @@
-"""Command-line interface for MystiLink Zi Wei calculator.
+"""Command-line interface for Mystilink Zi Wei calculator.
 
 Subcommands:
   chart    Compute a San He Zi Wei chart; print JSON to stdout

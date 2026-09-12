@@ -1,6 +1,6 @@
 // Minimal C# example. Compile with bindings/csharp/ZiweiCalculator.cs
 using System;
-using MystiLink.Ziwei;
+using Mystilink.Ziwei;
 
 class Program
 {

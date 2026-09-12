@@ -2,7 +2,7 @@
  * Browser entry: same API as Node, but requires injected runCli.
  *
  * Example:
- *   const { createClient } = window.MystiLinkZiwei;
+ *   const { createClient } = window.MystilinkZiwei;
  *   const client = createClient({ runCli: async (argv) => myBridge(argv) });
  */
 'use strict';
@@ -38,5 +38,5 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = { createClient };
 }
 if (typeof window !== 'undefined') {
-  window.MystiLinkZiwei = { createClient };
+  window.MystilinkZiwei = { createClient };
 }

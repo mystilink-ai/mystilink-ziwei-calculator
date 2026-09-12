@@ -1,4 +1,4 @@
-# MystiLink Zi Wei Calculator
+# Mystilink Zi Wei Calculator
 
 > Languages: [English](README.md) | [简体中文](README.zh-CN.md)
 

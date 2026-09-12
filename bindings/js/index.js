@@ -1,5 +1,5 @@
 /**
- * MystiLink Zi Wei calculator JS binding.
+ * Mystilink Zi Wei calculator JS binding.
  *
  * Node: spawns `mystilink-ziwei` (or MYSTILINK_ZIWEI_CLI).
  * Browser: pass a custom `runCli(argv)` that returns a Promise<string> of JSON stdout.

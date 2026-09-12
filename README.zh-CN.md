@@ -1,4 +1,4 @@
-# MystiLink 紫微斗数排盘
+# Mystilink 紫微斗数排盘
 
 > Languages: [English](README.md) | [简体中文](README.zh-CN.md)
 
