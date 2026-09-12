@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MystiLink Ziwei JS example</title>
+</head>
+<body>
+  <pre id="out">Load browser.js and inject runCli before calling createClient.</pre>
+  <script src="../../bindings/js/browser.js"></script>
+  <script>
+    // Browser cannot spawn local CLI directly. Provide a host bridge, e.g.:
+    // const client = MystiLinkZiwei.createClient({
+    //   runCli: async (argv) => window.hostRunZiweiCli(argv)
+    // });
+    document.getElementById('out').textContent =
+      'Browser binding ready. Inject runCli that returns JSON stdout from mystilink-ziwei.';
+  </script>
+</body>
+</html>

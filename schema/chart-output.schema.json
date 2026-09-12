@@ -1,0 +1,43 @@
+{
+  "title": "ZiweiChartOutput",
+  "type": "object",
+  "required": [
+    "solar_local",
+    "gender",
+    "lunar",
+    "four_pillars",
+    "ming_gong_branch",
+    "shen_gong_branch",
+    "palaces"
+  ],
+  "properties": {
+    "solar_local": { "type": "string" },
+    "solar_used_for_lunar": { "type": "string" },
+    "midnight_zi_rule": { "type": "string" },
+    "true_solar_time_enabled": { "type": "boolean" },
+    "true_solar_time_delta_minutes": { "type": ["number", "null"] },
+    "gender": { "type": "string", "enum": ["male", "female"] },
+    "yin_yang": { "type": "string" },
+    "zodiac": { "type": "string" },
+    "lunar": { "type": "object" },
+    "four_pillars": { "type": "object" },
+    "hour_branch": { "type": "string" },
+    "ming_gong_branch": { "type": "string" },
+    "shen_gong_branch": { "type": "string" },
+    "ming_zhu": { "type": "string" },
+    "shen_zhu": { "type": "string" },
+    "ming_gong_pillar": { "type": "string" },
+    "na_yin": { "type": "string" },
+    "five_element_frame": { "type": "string" },
+    "five_element_number": { "type": "integer" },
+    "ziwei_branch": { "type": "string" },
+    "tianfu_branch": { "type": "string" },
+    "palaces": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "si_hua": { "type": "object" },
+    "liunian": { "type": "object" }
+  },
+  "additionalProperties": true
+}

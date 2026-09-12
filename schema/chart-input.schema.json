@@ -1,0 +1,37 @@
+{
+  "title": "ZiweiChartInput",
+  "type": "object",
+  "required": ["datetime", "timezone", "gender"],
+  "properties": {
+    "datetime": {
+      "type": "string",
+      "description": "Local civil time YYYY-MM-DD HH:MM"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA timezone name"
+    },
+    "gender": {
+      "type": "string",
+      "enum": ["male", "female"]
+    },
+    "midnight_zi": {
+      "type": "string",
+      "enum": ["same-day", "next-day"],
+      "default": "same-day"
+    },
+    "si_hua": {
+      "type": "boolean",
+      "default": false
+    },
+    "year": {
+      "type": ["integer", "null"],
+      "description": "Gregorian year for annual fortune"
+    },
+    "longitude": {
+      "type": ["number", "null"],
+      "description": "East-positive longitude degrees"
+    }
+  },
+  "additionalProperties": false
+}

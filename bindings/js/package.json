@@ -1,0 +1,16 @@
+{
+  "name": "@mystilink/ziwei-calculator",
+  "version": "0.1.0",
+  "description": "Zi Wei Dou Shu chart calculator binding (CLI contract)",
+  "main": "index.js",
+  "browser": "browser.js",
+  "exports": {
+    ".": {
+      "node": "./index.js",
+      "browser": "./browser.js",
+      "default": "./index.js"
+    }
+  },
+  "license": "MIT",
+  "keywords": ["ziwei", "zwds", "calculator", "cli"]
+}
