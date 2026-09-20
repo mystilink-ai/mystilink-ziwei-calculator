@@ -676,29 +676,27 @@ def solar_for_lunar(local_dt: datetime, midnight_zi: str) -> datetime:
     return local_dt
 
 
-def compute_chart(inp: ChartInput) -> dict[str, Any]:
-    # ── True solar time correction ──
-    tst_enabled = False
-    tst_delta = 0.0
-    effective_dt = inp.local_dt
-    if inp.longitude is not None:
-        try:
-            effective_dt, tst_delta = apply_true_solar_time(inp.local_dt, inp.longitude)
-            tst_enabled = True
-        except ValueError:
-            pass  # fall back to clock time if tz-aware conversion fails
-
-    solar_lunar = solar_for_lunar(inp.local_dt, inp.midnight_zi)
+def _assemble_chart_from_lunar(
+    inp: ChartInput,
+    *,
+    lunar_year: int,
+    lunar_month: int,
+    lunar_day: int,
+    leap: bool,
+    solar_used_for_lunar: datetime,
+    effective_dt: datetime,
+    tst_enabled: bool,
+    tst_delta: float,
+    calendar_engine: str = "builtin",
+    calendar_basis: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     naive = datetime(
-        solar_lunar.year, solar_lunar.month, solar_lunar.day,
-        solar_lunar.hour, solar_lunar.minute,
+        solar_used_for_lunar.year,
+        solar_used_for_lunar.month,
+        solar_used_for_lunar.day,
+        solar_used_for_lunar.hour,
+        solar_used_for_lunar.minute,
     )
-    z = ZhDate.from_datetime(naive)
-    lunar_year = z.lunar_year
-    lunar_month = z.lunar_month
-    lunar_day = z.lunar_day
-    leap = bool(z.leap_month)
-
     hour_br = hour_to_branch(effective_dt.hour, effective_dt.minute)
     ming = ming_gong_branch(lunar_month, hour_br)
     shen = shen_gong_branch(lunar_month, hour_br)
@@ -777,7 +775,73 @@ def compute_chart(inp: ChartInput) -> dict[str, Any]:
         out["si_hua"] = si_hua_with_palaces(y_stem, palaces)
     if liunian_info:
         out["liunian"] = liunian_info
+    out["calendar_engine"] = calendar_engine
+    if calendar_basis is not None:
+        out["calendar_basis"] = calendar_basis
     return out
+
+
+def compute_chart(
+    inp: ChartInput,
+    *,
+    calendar_engine: str = "builtin",
+    calendar_basis: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Compute a Zi Wei chart.
+
+    calendar_engine:
+      - builtin (default): zhdate conversion
+      - lunar / external_basis: use mystilink_ziwei.calendar_engine helpers
+        (or pass calendar_basis for external_basis)
+    """
+    if calendar_basis is not None or calendar_engine == "external_basis":
+        from .calendar_engine import compute_chart_from_calendar_basis
+
+        return compute_chart_from_calendar_basis(
+            calendar_basis if calendar_basis is not None else {},
+            inp=inp,
+        )
+    if calendar_engine == "lunar":
+        from .calendar_engine import compute_chart_with_lunar
+
+        return compute_chart_with_lunar(inp)
+    if calendar_engine != "builtin":
+        raise ValueError(f"unknown calendar_engine: {calendar_engine!r}")
+
+    # ── True solar time correction ──
+    tst_enabled = False
+    tst_delta = 0.0
+    effective_dt = inp.local_dt
+    if inp.longitude is not None:
+        try:
+            effective_dt, tst_delta = apply_true_solar_time(inp.local_dt, inp.longitude)
+            tst_enabled = True
+        except ValueError:
+            pass  # fall back to clock time if tz-aware conversion fails
+
+    solar_lunar = solar_for_lunar(inp.local_dt, inp.midnight_zi)
+    z = ZhDate.from_datetime(
+        datetime(
+            solar_lunar.year,
+            solar_lunar.month,
+            solar_lunar.day,
+            solar_lunar.hour,
+            solar_lunar.minute,
+        )
+    )
+    return _assemble_chart_from_lunar(
+        inp,
+        lunar_year=z.lunar_year,
+        lunar_month=z.lunar_month,
+        lunar_day=z.lunar_day,
+        leap=bool(z.leap_month),
+        solar_used_for_lunar=solar_lunar,
+        effective_dt=effective_dt,
+        tst_enabled=tst_enabled,
+        tst_delta=tst_delta,
+        calendar_engine="builtin",
+        calendar_basis=None,
+    )
 
 
 # ═══════════════════════════════════════════════════════════════════════

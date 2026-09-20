@@ -30,7 +30,15 @@ except ImportError:  # pragma: no cover
 
 
 def _cli() -> str:
-    return os.environ.get("MYSTILINK_ZIWEI_CLI") or "mystilink-ziwei"
+    env = os.environ.get("MYSTILINK_ZIWEI_CLI")
+    if env:
+        return env
+    import shutil
+
+    for name in ("ziwei", "mystilink-ziwei"):
+        if shutil.which(name):
+            return name
+    return "ziwei"
 
 
 def chart_via_cli(

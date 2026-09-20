@@ -29,6 +29,8 @@ Contract for non-Python bindings: invoke the `ziwei` executable (or path from en
 ```bash
 cd mystilink-ziwei-calculator
 python3 -m pip install -e .
+# optional lunar engine (Python 3.10+)
+python3 -m pip install -e '.[lunar]'
 ```
 
 Verify:
@@ -66,8 +68,13 @@ ziwei chart --birth-json tests/fixtures/birth.profile.v0.json
 | `--si-hua` | no | Include birth-year si-hua with palace |
 | `--year` | no | Gregorian year for annual fortune labels |
 | `--longitude` | no | East-positive degrees; enables true solar time correction |
+| `--calendar-engine` | no | `builtin` (zhdate, default), `lunar` (optional extra), or `external_basis` |
+| `--calendar-basis` | no | External calendar-basis / lunar convert JSON (file, `-`, or inline) |
+| `--envelope` | no | Wrap as `mystilink.envelope/0.1` (default: bare chart) |
+| `--locale` | no | BCP 47 locale for envelope |
 
-Chart JSON includes `schema_version`: `mystilink.ziwei.chart/0.1`.
+Chart JSON includes `schema_version`: `mystilink.ziwei.chart/0.1` and `calendar_engine`.
+Lunar/external engines may embed `calendar_basis`.
 
 ### Version
 

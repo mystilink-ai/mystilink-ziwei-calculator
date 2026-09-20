@@ -29,6 +29,8 @@
 ```bash
 cd mystilink-ziwei-calculator
 python3 -m pip install -e .
+# 可选 lunar 引擎（Python 3.10+）
+python3 -m pip install -e '.[lunar]'
 ```
 
 验证：
@@ -63,6 +65,13 @@ ziwei chart \
 | `--si-hua` | 否 | 输出生年干四化及落宫 |
 | `--year` | 否 | 流年公历年份 |
 | `--longitude` | 否 | 东经为正的经度；启用真太阳时修正 |
+| `--calendar-engine` | 否 | `builtin`（zhdate，默认）、`lunar`（可选 extra）或 `external_basis` |
+| `--calendar-basis` | 否 | 外部 calendar-basis / lunar convert JSON |
+| `--envelope` | 否 | 包装为 `mystilink.envelope/0.1`（默认裸盘 JSON） |
+| `--locale` | 否 | 信封 BCP 47 语言标签 |
+
+盘面 JSON 含 `schema_version`：`mystilink.ziwei.chart/0.1` 与 `calendar_engine`。
+lunar / external_basis 可能嵌套 `calendar_basis`。
 
 ### 版本
 
