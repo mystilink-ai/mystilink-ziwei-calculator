@@ -741,6 +741,7 @@ def compute_chart(inp: ChartInput) -> dict[str, Any]:
     zodiac = ZODIAC_MAP.get(y_branch, "")
 
     out: dict[str, Any] = {
+        "schema_version": "mystilink.ziwei.chart/0.1",
         "solar_local": inp.local_dt.isoformat(),
         "solar_used_for_lunar": naive.isoformat(),
         "midnight_zi_rule": inp.midnight_zi,

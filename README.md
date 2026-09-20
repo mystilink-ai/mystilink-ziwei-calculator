@@ -52,17 +52,22 @@ mystilink-ziwei chart \
   --si-hua \
   --year 2026 \
   --longitude 121.5
+
+mystilink-ziwei chart --birth-json tests/fixtures/birth.profile.v0.json
 ```
 
 | Flag | Required | Description |
 |------|----------|-------------|
-| `--datetime` | yes | Local civil time `YYYY-MM-DD HH:MM` |
-| `--timezone` | yes | IANA timezone name |
-| `--gender` | yes | `male` or `female` |
+| `--datetime` | unless `--birth-json` | Local civil time `YYYY-MM-DD HH:MM` |
+| `--timezone` | unless `--birth-json` | IANA timezone name |
+| `--gender` | unless BirthProfile | `male` or `female` |
+| `--birth-json` | no | BirthProfile (`mystilink.birth/0.1`): file, `-`, or inline JSON |
 | `--midnight-zi` | no | `same-day` (default) or `next-day` for late 子时 lunar day rule |
 | `--si-hua` | no | Include birth-year si-hua with palace |
 | `--year` | no | Gregorian year for annual fortune labels |
 | `--longitude` | no | East-positive degrees; enables true solar time correction |
+
+Chart JSON includes `schema_version`: `mystilink.ziwei.chart/0.1`.
 
 ### Version
 
