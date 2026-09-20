@@ -12,7 +12,7 @@ namespace Mystilink.Ziwei
         private static string CliPath()
         {
             var env = Environment.GetEnvironmentVariable("MYSTILINK_ZIWEI_CLI");
-            return string.IsNullOrWhiteSpace(env) ? "mystilink-ziwei" : env;
+            return string.IsNullOrWhiteSpace(env) ? "ziwei" : env;
         }
 
         private static string Run(string arguments)
@@ -29,7 +29,7 @@ namespace Mystilink.Ziwei
                 StandardErrorEncoding = Encoding.UTF8,
             };
             using var proc = Process.Start(psi)
-                ?? throw new InvalidOperationException("failed to start mystilink-ziwei");
+                ?? throw new InvalidOperationException("failed to start ziwei");
             string stdout = proc.StandardOutput.ReadToEnd();
             string stderr = proc.StandardError.ReadToEnd();
             proc.WaitForExit();

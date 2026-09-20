@@ -10,14 +10,14 @@
 
 | 目标 | 交付物 |
 |------|--------|
-| Python | 可安装包 `mystilink-ziwei-calculator` 与 CLI `mystilink-ziwei` |
+| Python | 可安装包 `mystilink-ziwei-calculator` 与 CLI `ziwei` |
 | C | 头文件 + 通过 CLI 取回 JSON 的库 |
 | C++ | 对 C API 的薄封装 |
 | C# | 调用 CLI 的进程封装 |
 | Java | ProcessBuilder 封装 |
 | JavaScript / Node | 同一 npm 包；Node 默认 spawn CLI；浏览器通过注入 `runCli` |
 
-非 Python 绑定的契约：调用可执行文件 `mystilink-ziwei`（或环境变量 `MYSTILINK_ZIWEI_CLI` 指定路径），解析标准输出中的 JSON。
+非 Python 绑定的契约：调用可执行文件 `ziwei`（或环境变量 `MYSTILINK_ZIWEI_CLI` 指定路径），解析标准输出中的 JSON。长别名 `mystilink-ziwei` 仍会安装。
 
 ## 环境要求
 
@@ -34,7 +34,7 @@ python3 -m pip install -e .
 验证：
 
 ```bash
-mystilink-ziwei version
+ziwei version
 ```
 
 ## 命令行
@@ -44,7 +44,7 @@ mystilink-ziwei version
 ### 排盘
 
 ```bash
-mystilink-ziwei chart \
+ziwei chart \
   --datetime "1990-05-15 14:30" \
   --timezone Asia/Shanghai \
   --gender male \
@@ -67,7 +67,7 @@ mystilink-ziwei chart \
 ### 版本
 
 ```bash
-mystilink-ziwei version
+ziwei version
 ```
 
 亦可：`python -m mystilink_ziwei …`

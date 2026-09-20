@@ -6,7 +6,7 @@
 #include <string.h>
 
 #ifndef MYSTILINK_ZIWEI_CLI_DEFAULT
-#define MYSTILINK_ZIWEI_CLI_DEFAULT "mystilink-ziwei"
+#define MYSTILINK_ZIWEI_CLI_DEFAULT "ziwei"
 #endif
 
 static const char *cli_path(void) {

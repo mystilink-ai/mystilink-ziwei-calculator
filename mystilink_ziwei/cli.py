@@ -70,13 +70,13 @@ def cmd_chart(args: argparse.Namespace) -> int:
 
 
 def cmd_version(_: argparse.Namespace) -> int:
-    _emit_json({"name": "mystilink-ziwei-calculator", "version": __version__})
+    _emit_json({"name": "mystilink-ziwei-calculator", "version": __version__, "cli": "ziwei"})
     return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="mystilink-ziwei",
+        prog="ziwei",
         description="Zi Wei Dou Shu chart calculator (JSON CLI)",
     )
     sub = p.add_subparsers(dest="command", required=True)

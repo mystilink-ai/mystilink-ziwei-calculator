@@ -11,7 +11,7 @@ function defaultCliPath() {
   if (typeof process !== 'undefined' && process.env && process.env.MYSTILINK_ZIWEI_CLI) {
     return process.env.MYSTILINK_ZIWEI_CLI;
   }
-  return 'mystilink-ziwei';
+  return 'ziwei';
 }
 
 async function defaultRunCli(argv) {

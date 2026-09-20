@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mystilink-ziwei-calculator"
-version = "0.2.0"
+version = "0.2.1"
 description = "Zi Wei Dou Shu (Purple Star) chart calculator with JSON CLI"
 readme = "README.md"
 license = { text = "MIT" }
@@ -24,7 +24,9 @@ dependencies = [
 ]
 
 [project.scripts]
+ziwei = "mystilink_ziwei.cli:main"
 mystilink-ziwei = "mystilink_ziwei.cli:main"
+
 
 [tool.setuptools.packages.find]
 include = ["mystilink_ziwei*"]

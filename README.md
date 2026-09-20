@@ -10,14 +10,14 @@ Computes a San He style Zi Wei Dou Shu (Purple Star) natal chart from a local ci
 
 | Target | Delivery |
 |--------|----------|
-| Python | Installable package `mystilink-ziwei-calculator` and CLI `mystilink-ziwei` |
+| Python | Installable package `mystilink-ziwei-calculator` and CLI `ziwei` |
 | C | Header + library that runs the CLI and returns JSON |
 | C++ | Thin wrapper over the C API |
 | C# | Process wrapper around the CLI |
 | Java | ProcessBuilder wrapper around the CLI |
 | JavaScript / Node | Same npm package; Node spawns CLI by default; browser injects a `runCli` function |
 
-Contract for non-Python bindings: invoke the `mystilink-ziwei` executable (or path from env `MYSTILINK_ZIWEI_CLI`) and parse JSON on stdout.
+Contract for non-Python bindings: invoke the `ziwei` executable (or path from env `MYSTILINK_ZIWEI_CLI`) and parse JSON on stdout. Alias `mystilink-ziwei` remains installed.
 
 ## Requirements
 
@@ -34,7 +34,7 @@ python3 -m pip install -e .
 Verify:
 
 ```bash
-mystilink-ziwei version
+ziwei version
 ```
 
 ## CLI
@@ -44,7 +44,7 @@ Always prints JSON to stdout on success.
 ### Chart
 
 ```bash
-mystilink-ziwei chart \
+ziwei chart \
   --datetime "1990-05-15 14:30" \
   --timezone Asia/Shanghai \
   --gender male \
@@ -53,7 +53,7 @@ mystilink-ziwei chart \
   --year 2026 \
   --longitude 121.5
 
-mystilink-ziwei chart --birth-json tests/fixtures/birth.profile.v0.json
+ziwei chart --birth-json tests/fixtures/birth.profile.v0.json
 ```
 
 | Flag | Required | Description |
@@ -72,7 +72,7 @@ Chart JSON includes `schema_version`: `mystilink.ziwei.chart/0.1`.
 ### Version
 
 ```bash
-mystilink-ziwei version
+ziwei version
 ```
 
 Also: `python -m mystilink_ziwei …`

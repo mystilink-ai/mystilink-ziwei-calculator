@@ -18,7 +18,7 @@ public final class ZiweiCalculator {
         if (env != null && !env.isBlank()) {
             return env;
         }
-        return "mystilink-ziwei";
+        return "ziwei";
     }
 
     private static String run(List<String> command) throws Exception {
@@ -41,7 +41,7 @@ public final class ZiweiCalculator {
         }
         if (!p.waitFor(120, TimeUnit.SECONDS)) {
             p.destroyForcibly();
-            throw new IllegalStateException("mystilink-ziwei timed out");
+            throw new IllegalStateException("ziwei timed out");
         }
         if (p.exitValue() != 0) {
             String msg = stderr.length() > 0 ? stderr.toString() : stdout.toString();
