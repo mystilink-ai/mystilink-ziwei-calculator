@@ -1,6 +1,6 @@
 # Mystilink 紫微斗数排盘
 
-> Languages: [English](README.md) | [简体中文](README.zh-CN.md)
+> Languages: [English](../../README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Français](README.fr.md) | [Español](README.es.md)
 
 ## 概述
 
@@ -124,4 +124,4 @@ CLI 入参/出参 JSON Schema 草稿见 `schema/`。
 
 ## 许可
 
-MIT。见 [LICENSE](LICENSE)。
+MIT。见 [LICENSE](../../LICENSE)。
