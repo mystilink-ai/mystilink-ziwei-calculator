@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.3
+
+- Test against sibling `mystilink-metaphysics-schema` when present (`tests/test_schema_alignment.py`)
+- Chart output remains compatible with tightened `mystilink.ziwei.chart/0.1`
+
 ## 0.2.2
 
 - Optional `[lunar]` extra (`mystilink-lunar>=0.1.0a3`, Python 3.10+)

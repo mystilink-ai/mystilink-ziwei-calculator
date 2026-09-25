@@ -9,7 +9,7 @@ from .calendar_engine import (
 )
 from .chart import ChartInput, compute_chart, parse_local_datetime, print_chart
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 __all__ = [
     "BirthProfileError",
